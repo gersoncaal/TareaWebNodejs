@@ -1,0 +1,20 @@
+CREATE TABLE `tipos_sangre` (
+  `id_tipo_sangre` int NOT NULL,
+  `nombre` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id_tipo_sangre`)
+)
+
+CREATE TABLE `estudiantes` (
+  `id_estudiantes` int NOT NULL AUTO_INCREMENT,
+  `carne` varchar(25) NOT NULL,
+  `nombres` varchar(45) NOT NULL,
+  `apellidos` varchar(45) NOT NULL,
+  `direccion` varchar(80) NOT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
+  `correo_electronico` varchar(45) DEFAULT NULL,
+  `id_tipo_sangre` int NOT NULL,
+  `fecha_nacimiento` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id_estudiantes`),
+  KEY `id_tipo_sangre_sangre_idx` (`id_tipo_sangre`),
+  CONSTRAINT `id_tipo_estudiantes_tipossangre` FOREIGN KEY (`id_tipo_sangre`) REFERENCES `tipos_sangre` (`id_tipo_sangre`) ON UPDATE CASCADE
+)
